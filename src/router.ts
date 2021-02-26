@@ -1,19 +1,26 @@
 import { Router } from 'express';
-import { userController } from './controllers/userController';
-import { surveyController } from './controllers/surveyController';
-import { sendMailController } from './controllers/sendMailController';
+import { UserController } from './controllers/UserController';
+import { SurveyController } from './controllers/SurveyController';
+import { SendMailController } from './controllers/SendMailController';
+import { AnswerController } from './controllers/AnswerController';
+import { NpsController } from './controllers/NpsController';
 
 const router = Router();
-const UserController = new userController();
-const SurveysController = new surveyController();
+const userController = new UserController();
+const surveysController = new SurveyController();
 
-const SendMailController = new sendMailController();
+const sendMailController = new SendMailController();
+const answerController = new AnswerController();
 
-router.post('/users', UserController.create);
+const npsController = new NpsController();
 
-router.post('/surveys', SurveysController.create);
-router.get('/surveys', SurveysController.show);
+router.post('/users', userController.create);
 
-router.post('/sendMail', SendMailController.execute);
+router.post('/surveys', surveysController.create);
+router.get('/surveys', surveysController.show);
 
+router.post('/sendMail', sendMailController.execute);
+
+router.get('/answers/:value', answerController.execute);
+router.get('/nps/:survey_id', npsController.execute);
 export { router }

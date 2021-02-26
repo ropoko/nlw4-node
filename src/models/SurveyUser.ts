@@ -1,10 +1,10 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import { user as User } from './user';
-import { survey as Survey } from './survey';
+import { User } from './User';
+import { Survey } from './Survey';
 
 @Entity("surveys_users")
-class surveyUser {
+class SurveyUser {
     @PrimaryColumn()
     readonly id: string;
 
@@ -35,4 +35,4 @@ class surveyUser {
     }
 }
 
-export { surveyUser }
+export { SurveyUser }

@@ -2,7 +2,7 @@ import nodemailer, { Transporter } from 'nodemailer';
 import handlebars from 'handlebars';
 import fs from 'fs';
 
-class sendMailService {
+class SendMailService {
     private client: Transporter
 
     constructor() {
@@ -23,7 +23,7 @@ class sendMailService {
     }
 
     async execute(to: string, subject: string, variables: object, path: string) {
-        const templateFileContent = fs.readFileSync(path).toString("utf-8");
+        const templateFileContent = fs.readFileSync(path).toString('utf8');
 
         const mailTemplateParse = handlebars.compile(templateFileContent);
 
@@ -36,9 +36,9 @@ class sendMailService {
             from: "NPS <noreply@nps.com.br>"
         });
 
-        console.log('Message sent: %s', message.MessageId);
+        console.log('Message sent: %s', message.messageId);
         console.log('Preview URL sent: %s', nodemailer.getTestMessageUrl(message));
     }
 }
 
-export default new sendMailService;
+export default new SendMailService;

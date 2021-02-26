@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
 import { getCustomRepository } from 'typeorm';
-import { SurveysRepository } from '../repositories/surveysRepository';
+import { SurveysRepository } from '../repositories/SurveysRepository';
 
-class surveyController {
+class SurveyController {
     async create(request:  Request, response: Response) {
         const { title, description } = request.body;
 
@@ -26,4 +26,4 @@ class surveyController {
     }
 }
 
-export { surveyController }
+export { SurveyController }
