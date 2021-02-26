@@ -3,6 +3,11 @@
 Projeto de uma API desenvolvida com Nodejs, utilizando typescript com base nos 
 workshops da NLW4 da RocketSeat!
 
+## Sobre
+
+API com sistema de cadastros de usuario, cadastro de perguntas, envios de e-mail e pesquisa de satisfação (com cálculo de NPS - Net Promoter Score)
+
+
 ## :rocket: Tecnologias 
 
 - [Node.js](https://nodejs.org/en/)
